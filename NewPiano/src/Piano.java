@@ -10,10 +10,9 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.util.Scanner;
 
-public class TestMe  extends JFrame  implements Runnable, KeyListener{
-    TestMe () {
+public class Piano extends JFrame  implements Runnable, KeyListener{
+    Piano() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(10,10);
         this.addKeyListener(this);
