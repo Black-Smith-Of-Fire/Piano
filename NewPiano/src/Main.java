@@ -6,30 +6,12 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 import java.util.Scanner;
+import src.TestMe;
 
-public class Main extends Thread {
-
-    Main(){
-
-    }
-
-    @Override
-    public void run () {} // Just in case
-
-    private void audio(String audio){ // Audio handling
-        try {
-            File file = new File(audio);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.start();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+public class Main {
 
     public static void main(String[] args) {
-        new Main();
+        new TestMe();
         // Until user inputs Q , this loop will run.
     }
 }
