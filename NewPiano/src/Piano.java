@@ -71,9 +71,6 @@ public class TestMe  extends JFrame  implements Runnable, KeyListener{
         }
 
     }
-    public static void main(String[] args) {
-        TestMe test = new TestMe();
-    }
 
     @Override
     public void run() {
