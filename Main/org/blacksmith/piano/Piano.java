@@ -1,12 +1,14 @@
-package src;
+package org.blacksmith.piano;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
+//import
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import java.io.File;
+//import org.blacksmith.piano.Audio_Files.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +16,7 @@ import java.io.InputStream;
 public class Piano implements  NativeKeyListener {
 
     int totalLength ;
-    String path = "NewPiano/Audio_Files/";
+    String path = "Main/org/blacksmith/piano/Audio_Files/";
     Player player;
     InputStream is;
 
