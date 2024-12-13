@@ -23,7 +23,7 @@ import java.io.InputStream;
 public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
 
     int totalLength ;
-    String path = "NewPiano/piano/";
+    String path = "NewPiano/Audio_Files/";
     int pauseLocation;
     Player player;
     InputStream is;
