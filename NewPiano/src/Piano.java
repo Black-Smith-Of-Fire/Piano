@@ -6,13 +6,12 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
+public class Piano implements  NativeKeyListener {
 
     int totalLength ;
     String path = "NewPiano/Audio_Files/";
@@ -31,8 +30,9 @@ public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
         GlobalScreen.addNativeKeyListener(this);
     }
 
+    // Method to play the audio file which would be passed in the parameter
     public void play(String musicFile) throws IOException,  JavaLayerException {
-//        is = this.getClass().getResourceAsStream(musicFile);
+
         is = new FileInputStream(new File(musicFile));
         totalLength = is.available();
         player = new Player(is);
@@ -52,37 +52,39 @@ public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
 
     }
 
+    // Method to detect what keys are being pressed
     public void nativeKeyPressed(NativeKeyEvent e){
 
         try {
+            // To know what keys are being played , please refer to the README
             if (e.getKeyCode() == NativeKeyEvent.VC_A) {
                 play(path + "C2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_S) {
                 play(path +"D2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_D) {
                 play(path + "E2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_F) {
                 play(path + "F2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_G) {
                 play(path +"G2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_J) {
                 play(path +"A2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_K) {
-                play(path +"B1.mp3");
+                play(path +"B2.mp3");
             }
-//
+
             if (e.getKeyCode() == NativeKeyEvent.VC_C) {
                 play(path +"C3.mp3");
             }
