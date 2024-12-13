@@ -1,6 +1,6 @@
-A piano in java using swing .
+A piano in java using jNativeHook .
 
-Use the keys in ur  keyboard to play the piano
+Use the keys in ur  keyboard to play the Audio_Files
 
 keys : note
 
