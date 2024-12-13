@@ -19,3 +19,12 @@ j : A;
 k : B;
 
 c : C;
+
+
+Use the following keys to play Twinkle Twinkle Little Star (please pause when asked)
+
+gg ss dd s (pause) aa kk jj g (pause)
+
+ss cc kk j ss aa kk j (pause)
+
+gg ss dd s (pause) cc kk jj  g
