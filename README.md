@@ -1,6 +1,6 @@
 A piano in java using jNativeHook .
 
-Use the keys in ur  keyboard to play the Audio_Files
+Use the keys in ur  keyboard to play the Piano keys
 
 keys : note
 
