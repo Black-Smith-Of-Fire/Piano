@@ -8,7 +8,7 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-//import src.piano.*;
+//import piano.*;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -16,12 +16,14 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
 
     int totalLength ;
+    String path = "NewPiano/piano/";
     int pauseLocation;
     Player player;
     InputStream is;
@@ -59,7 +61,8 @@ public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
 
 
     public void play(String musicFile) throws IOException,  JavaLayerException {
-        is = this.getClass().getResourceAsStream(musicFile);
+//        is = this.getClass().getResourceAsStream(musicFile);
+        is = new FileInputStream(new File(musicFile));
         totalLength = is.available();
         player = new Player(is);
 
@@ -84,49 +87,49 @@ public class Piano extends JFrame  implements /*Runnable,*/ NativeKeyListener {
 
         try {
             if (e.getKeyCode() == NativeKeyEvent.VC_A) {
-                play("C2.mp3");
+                play(path + "C2.mp3");
 //            sound("NewPiano/src/piano/C.wav");
                 System.out.println("You pressed A ");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_S) {
-                play("D2.mp3");
+                play(path +"D2.mp3");
                 System.out.println("You pressed S");
 //            sound("NewPiano/src/piano/D.wav");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_D) {
-                play("E2.mp3");
+                play(path + "E2.mp3");
                 System.out.println("You pressed D");
 //            sound("NewPiano/src/piano/E.wav");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_F) {
-                play("F2.mp3");
+                play(path + "F2.mp3");
                 System.out.println("You pressed E");
 //            sound("NewPiano/src/piano/F.wav");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_G) {
-                play("G2.mp3");
+                play(path +"G2.mp3");
                 System.out.println("You pressed G");
 //            sound("NewPiano/src/piano/G.wav");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_J) {
-                play("A2.mp3");
+                play(path +"A2.mp3");
                 System.out.println("You pressed J");
 //            sound("NewPiano/src/piano/A.wav");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_K) {
-                play("B2.mp3");
+                play(path +"B2.mp3");
                 System.out.println("You pressed K");
 //            sound("NewPiano/src/piano/B.wav");
             }
 //
             if (e.getKeyCode() == NativeKeyEvent.VC_C) {
-                play("C3.mp3");
+                play(path +"C3.mp3");
                 System.out.println("You pressed C");
 //            sound("NewPiano/src/piano/C1.wav");
             }
