@@ -4,14 +4,28 @@ import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.Line;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.SourceDataLine;
+
+import javazoom.jl.decoder.Decoder;
+import javazoom.jl.decoder.JavaLayerException;
+
 //import
 import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.AudioDevice;
+import javazoom.jl.player.JavaSoundAudioDevice;
 import javazoom.jl.player.Player;
 import java.io.File;
 //import org.blacksmith.piano.Audio_Files.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 
 public class Piano implements  NativeKeyListener {
 
@@ -19,6 +33,8 @@ public class Piano implements  NativeKeyListener {
     String path = "Main/org/blacksmith/piano/Audio_Files/";
     Player player;
     InputStream is;
+    private FloatControl volControl;
+    private AudioDevice device;
 
     Piano() {
 
@@ -53,6 +69,8 @@ public class Piano implements  NativeKeyListener {
         }.start();
 
     }
+
+
 
     // Method to detect what keys are being pressed
     public void nativeKeyPressed(NativeKeyEvent e){
