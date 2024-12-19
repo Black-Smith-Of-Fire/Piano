@@ -1,6 +1,6 @@
 A piano in java using jNativeHook .
 
-Use the keys in ur  keyboard to play the Piano keys
+Use the keys in your  keyboard to play the Piano keys
 
 keys : note
 
@@ -21,7 +21,7 @@ k : B;
 c : C;
 
 
-Use the following keys to play Twinkle Twinkle Little Star (please pause when asked)
+Use the following keys to play Twinkle Twinkle Little Star (please pause when as per mentioned)
 
 gg ss dd s (pause) aa kk jj g (pause)
 
