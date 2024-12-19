@@ -19,23 +19,16 @@ public class Piano implements  NativeKeyListener {
     String path = "Main/org/blacksmith/piano/Audio_Files/";
     Player player;
     InputStream is;
-    int keys;
-    String chords;
 
     ArrayList<KeyAndChords> list;
+
 
     Piano() {
 
         list = new ArrayList<>();
-        // Adding the keys and the chords
-        list.add(new KeyAndChords(NativeKeyEvent.VC_A,"C2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_S,"D2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_D,"E2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_F,"F2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_G,"G2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_J,"A2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_K,"B2"));
-        list.add(new KeyAndChords(NativeKeyEvent.VC_C,"C3"));
+        // Adding the keys and chords to our constructor
+        values();
+
         try {
             GlobalScreen.registerNativeHook();
         }
@@ -69,6 +62,16 @@ public class Piano implements  NativeKeyListener {
     }
 
 
+    public void values(){
+        list.add(new KeyAndChords(NativeKeyEvent.VC_A,"C2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_S,"D2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_D,"E2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_F,"F2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_G,"G2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_J,"A2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_K,"B2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_C,"C3"));
+    }
 
     // Method to detect what keys are being pressed
     public void nativeKeyPressed(NativeKeyEvent e){
