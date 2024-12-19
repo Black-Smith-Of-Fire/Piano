@@ -4,14 +4,14 @@ import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
-//import
 import javazoom.jl.decoder.JavaLayerException;
+
 import javazoom.jl.player.Player;
 import java.io.File;
-//import org.blacksmith.piano.Audio_Files.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class Piano implements  NativeKeyListener {
 
@@ -20,7 +20,14 @@ public class Piano implements  NativeKeyListener {
     Player player;
     InputStream is;
 
+    ArrayList<KeyAndChords> list;
+
+
     Piano() {
+
+        list = new ArrayList<>();
+        // Adding the keys and chords to our constructor
+        values();
 
         try {
             GlobalScreen.registerNativeHook();
@@ -54,41 +61,26 @@ public class Piano implements  NativeKeyListener {
 
     }
 
+
+    public void values(){
+        list.add(new KeyAndChords(NativeKeyEvent.VC_A,"C2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_S,"D2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_D,"E2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_F,"F2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_G,"G2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_J,"A2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_K,"B2"));
+        list.add(new KeyAndChords(NativeKeyEvent.VC_C,"C3"));
+    }
+
     // Method to detect what keys are being pressed
     public void nativeKeyPressed(NativeKeyEvent e){
-
         try {
             // To know what keys are being played , please refer to the README
-            if (e.getKeyCode() == NativeKeyEvent.VC_A) {
-                play(path + "C2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_S) {
-                play(path +"D2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_D) {
-                play(path + "E2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_F) {
-                play(path + "F2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_G) {
-                play(path +"G2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_J) {
-                play(path +"A2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_K) {
-                play(path +"B2.mp3");
-            }
-
-            if (e.getKeyCode() == NativeKeyEvent.VC_C) {
-                play(path +"C3.mp3");
+            for (int i = 0; i < list.size(); i++) {
+                if (e.getKeyCode() == list.get(i).keys) {
+                    play(path + list.get(i).chords + ".mp3");
+                }
             }
         }
         catch (JavaLayerException | IOException ex){
