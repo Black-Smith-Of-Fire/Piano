@@ -71,6 +71,13 @@ public class Piano implements  NativeKeyListener {
         list.add(new KeyAndChords(NativeKeyEvent.VC_J,"A2"));
         list.add(new KeyAndChords(NativeKeyEvent.VC_K,"B2"));
         list.add(new KeyAndChords(NativeKeyEvent.VC_C,"C3"));
+        //Black keys
+//        list.add(new KeyAndChords(NativeKeyEvent.VC_W,"C3"));
+//        list.add(new KeyAndChords(NativeKeyEvent.VC_E,"C3"));
+
+//        list.add(new KeyAndChords(NativeKeyEvent.VC_U,"C3"));
+//        list.add(new KeyAndChords(NativeKeyEvent.VC_I,"C3"));
+//        list.add(new KeyAndChords(NativeKeyEvent.VC_O,"C3"));
     }
 
     // Method to detect what keys are being pressed
